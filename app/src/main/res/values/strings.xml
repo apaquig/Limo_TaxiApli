@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Limo_TaxiApli</string>
+    <string name="app_name">LimoTaxi</string>
+    <string name="app_driver">Conductor</string>
+    <string name="app_user">Usuario</string>
+    <string name="app_registrar">Registrar</string>
+    <string name="app_login">Iniciar Sesión</string>
+    <string name="app_usuario">Usuario</string>
+    <string name="app_contraseña">Contraseña</string>
+    <string name="app_nombre">Nombre</string>
+    <string name="app_placa">Placa</string>
+    <string name="app_correo">Correo</string>
 </resources>
