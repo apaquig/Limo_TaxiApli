@@ -19,7 +19,7 @@
           "client_type": 1,
           "android_info": {
             "package_name": "com.app.limo_taxi.limo_taxiapli",
-            "certificate_hash": "dcd62ed5f1f66049cb8e65d62194a140f2e4e945"
+          //  "certificate_hash": "dcd62ed5f1f66049cb8e65d62194a140f2e4e945"
           }
         },
         {
