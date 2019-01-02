@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "359837747908",
+    "firebase_url": "https://limotaxiap.firebaseio.com",
+    "project_id": "limotaxiap",
+    "storage_bucket": "limotaxiap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359837747908:android:8c4e747b0afc14a4",
+        "android_client_info": {
+          "package_name": "com.app.limo_taxi.limo_taxiapli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "359837747908-b0pk5j9m49ju13bklg4341i9pkethgal.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.limo_taxi.limo_taxiapli",
+            "certificate_hash": "34cf3df353766f8b3016c464880c6149637feae9"
+          }
+        },
+        {
+          "client_id": "359837747908-pll7rsma5j2b7sjuasdtmtal0uhs7334.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5WRRXyAH_16V2VapQLks6_UGkVLTZpxI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "359837747908-pll7rsma5j2b7sjuasdtmtal0uhs7334.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
