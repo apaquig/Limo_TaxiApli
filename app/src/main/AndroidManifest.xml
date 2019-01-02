@@ -22,7 +22,8 @@
         </activity>
         <activity android:name=".activity_driver_register" />
         <activity android:name=".activity_driver_login" />
-        <activity android:name=".activity_user_login"></activity>
+        <activity android:name=".activity_user_login" />
+        <activity android:name=".activity_user_register"></activity>
     </application>
 
 </manifest>

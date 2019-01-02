@@ -3,7 +3,6 @@ package  com.app.limo_taxi.limo_taxiapli;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,9 +25,9 @@ public class activity_driver_register extends AppCompatActivity {
         setContentView(R.layout.activity_driver_register);
 
         foto_gallery = (ImageView)findViewById(R.id.imagenId);
-        nombre = (EditText)findViewById(R.id.txtNombre);
+        nombre = (EditText)findViewById(R.id.txtNombreUsuario);
         placa= (EditText)findViewById(R.id.txtPlaca);
-        correo = (EditText)findViewById(R.id.txtCorreo);
+        correo = (EditText)findViewById(R.id.txtCorreoUsuario);
         contrasenia = (EditText)findViewById(R.id.txtContasenia);
         registar = (Button)findViewById(R.id.btnRegistrar);
 
