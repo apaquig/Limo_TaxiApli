@@ -23,15 +23,15 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class activity_driver_register extends AppCompatActivity {
 
-    private EditText mEmail, mPassword;
-    private Button mLogin, mRegistration;
+    private EditText mEmail, mPassword, mNombre, mPlaca;
+    private Button mRegistration;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver_login);
+        setContentView(R.layout.activity_driver_register);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -50,8 +50,9 @@ public class activity_driver_register extends AppCompatActivity {
 
         mEmail = (EditText) findViewById(R.id.email);
         mPassword = (EditText) findViewById(R.id.password);
+        mNombre = (EditText) findViewById(R.id.nombre2);
+        mPlaca = (EditText) findViewById(R.id.placa2);
 
-        mLogin = (Button) findViewById(R.id.login);
         mRegistration = (Button) findViewById(R.id.registration);
 
         mRegistration.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +60,9 @@ public class activity_driver_register extends AppCompatActivity {
             public void onClick(View v) {
                 final String email = mEmail.getText().toString();
                 final String password = mPassword.getText().toString();
+                final String nombre = mNombre.getText().toString();
+                final String placa = mPlaca.getText().toString();
+
                 mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(activity_driver_register.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -68,28 +72,11 @@ public class activity_driver_register extends AppCompatActivity {
                             String user_id = mAuth.getCurrentUser().getUid();
                             DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id);
                             current_user_db.setValue(true);
-                            current_user_db.child("Nombre").setValue("Jorge");
-
+                            current_user_db.child("Nombre").setValue(nombre);
+                            current_user_db.child("Placa").setValue(placa);
                         }
                     }
                 });
-            }
-        });
-
-        mLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String email = mEmail.getText().toString();
-                final String password = mPassword.getText().toString();
-                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(activity_driver_register.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(!task.isSuccessful()){
-                            Toast.makeText(activity_driver_register.this, "Error al Ingresar", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
             }
         });
     }
