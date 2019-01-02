@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class activity_user_register extends AppCompatActivity {
 
 
@@ -19,6 +21,7 @@ public class activity_user_register extends AppCompatActivity {
     private Button registar;
 
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class activity_user_register extends AppCompatActivity {
         password=(EditText)findViewById(R.id.txtContraseniaUsuario);
         registar=(Button)findViewById(R.id.btnRegistrarUsuario);
     }
+
     public void  inicirSesion(View view){
         Intent registrar=new Intent(this,activity_user_login.class);
         startActivity(registrar);
