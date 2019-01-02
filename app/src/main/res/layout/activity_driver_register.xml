@@ -7,7 +7,7 @@
     tools:context=".activity_driver_register">
 
     <EditText
-        android:id="@+id/txtNombreUsuario"
+        android:id="@+id/txtNombre"
         android:layout_width="288dp"
         android:layout_height="40dp"
         android:layout_marginStart="12dp"
@@ -28,7 +28,7 @@
         android:hint="@string/app_placa"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombreUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
 
     <Button
         android:id="@+id/btnRegistrar"
@@ -54,7 +54,7 @@
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <EditText
-        android:id="@+id/txtCorreoUsuario"
+        android:id="@+id/txtCorreo"
         android:layout_width="288dp"
         android:layout_height="40dp"
         android:layout_marginStart="12dp"
@@ -75,7 +75,7 @@
         android:hint="@string/app_contraseña"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCorreoUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCorreo" />
 
     <Button
         android:id="@+id/button6"
