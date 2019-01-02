@@ -7,17 +7,17 @@
     tools:context=".activity_driver_login">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         android:text="@string/app_login"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasenia" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/registro"
         android:layout_width="123dp"
         android:layout_height="48dp"
         android:layout_marginTop="28dp"
@@ -25,10 +25,10 @@
         android:onClick="registrar"
         android:text="@string/app_registrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasenia" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/txtUsuario"
         android:layout_width="271dp"
         android:layout_height="45dp"
         android:layout_marginStart="24dp"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/txtContrasenia"
         android:layout_width="271dp"
         android:layout_height="42dp"
         android:layout_marginStart="24dp"
@@ -55,5 +55,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsuario" />
 </android.support.constraint.ConstraintLayout>
