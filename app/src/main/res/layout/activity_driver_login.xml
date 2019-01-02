@@ -1,59 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_driver_login">
-
-    <Button
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
+    tools:context=".activity_driver_login"
+    android:orientation="vertical">
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/app_login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContrasenia" />
-
+        android:hint="Email"
+        android:id="@+id/email"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña"
+        android:id="@+id/password"/>
     <Button
-        android:id="@+id/registro"
-        android:layout_width="123dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="24dp"
-        android:onClick="registrar"
-        android:text="@string/app_registrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContrasenia" />
-
-    <EditText
-        android:id="@+id/txtUsuario"
-        android:layout_width="271dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="@string/app_user"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/txtContrasenia"
-        android:layout_width="271dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="@string/app_contraseña"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsuario" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingresar"
+        android:id="@+id/login"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrarse"
+        android:id="@+id/registration"/>
+</LinearLayout>
