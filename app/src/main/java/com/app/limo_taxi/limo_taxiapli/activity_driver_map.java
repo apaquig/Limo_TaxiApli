@@ -163,7 +163,7 @@ public class activity_driver_map extends FragmentActivity implements OnMapReadyC
             mLastLocation = location;
             LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
 
             String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
             DatabaseReference refAvailable = FirebaseDatabase.getInstance().getReference("driversAvailable");
