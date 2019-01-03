@@ -11,27 +11,4 @@
     <string name="app_correo">Correo</string>
     <string name="title_activity_driver_map">Map</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="openDrawer">open_drawer</string>
-    <string name="closeDrawer">close_drawer</string>
-
-    <!-- Navigation Drawer menu labels -->
-    <string name="nav_home">Mi Cuenta</string>
-    <string name="nav_photos">Configuraciones</string>
-    <string name="nav_movies">Acerca de</string>
-    <string name="nav_notifications">Cerrar Sesion</string>
-
-    <!-- Toolbar titles when navigation menu item is selected -->
-    <string-array name="nav_item_activity_titles">
-        <item>Mi Cuenta</item>
-        <item>Configuraciones</item>
-        <item>Acerca de</item>
-        <item>Cerrar Sesion</item>
-    </string-array>
-
-    <string name="activity_title_about_us">Acerca de Nosotros</string>
-    <string name="activity_title_privacy_policy">Politicas</string>
-    <string name="action_clear_all">Borrar Todo</string>
-    <string name="action_logout">Cerrar Sesion</string>
 </resources>
