@@ -9,9 +9,6 @@
     <string name="app_nombre">Nombre</string>
     <string name="app_placa">Placa</string>
     <string name="app_correo">Correo</string>
-
-    <string name="app_apellido">Apellido</string>
-    <string name="app_cedula">Cedula</string>
-    <string name="app_telefono">Telefono</string>
+    <string name="title_activity_driver_map">Map</string>
 
 </resources>

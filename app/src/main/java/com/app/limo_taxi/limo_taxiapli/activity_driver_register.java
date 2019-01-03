@@ -22,35 +22,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class activity_driver_register extends AppCompatActivity {
-    private static final int PICK_IMAGE = 100;
-    Uri imageUri;
-    ImageView foto_gallery;
 
-    private EditText nombre,placa,correo,contrasenia;
-    private Button registar;
+    private EditText mEmail, mPassword, mNombre, mPlaca;
+    private Button mRegistration;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_register);
-
-        foto_gallery = (ImageView)findViewById(R.id.imagenId);
-        nombre = (EditText)findViewById(R.id.txtNombre);
-        placa= (EditText)findViewById(R.id.txtPlaca);
-        correo = (EditText)findViewById(R.id.txtCorreo);
-        contrasenia = (EditText)findViewById(R.id.txtContasenia);
-        registar = (Button)findViewById(R.id.btnRegistrar);
-
-
-        foto_gallery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openGallery();
-            }
-        });
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -67,13 +48,21 @@ public class activity_driver_register extends AppCompatActivity {
             }
         };
 
-        registar.setOnClickListener(new View.OnClickListener() {
+        mEmail = (EditText) findViewById(R.id.email);
+        mPassword = (EditText) findViewById(R.id.password);
+        mNombre = (EditText) findViewById(R.id.nombre2);
+        mPlaca = (EditText) findViewById(R.id.placa2);
+
+        mRegistration = (Button) findViewById(R.id.registration);
+
+        mRegistration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String email = correo.getText().toString().trim();
-                final String password = contrasenia.getText().toString();
-                final String nombre1 = nombre.getText().toString().trim();
-                final String placa1 = placa.getText().toString().trim();
+                final String email = mEmail.getText().toString();
+                final String password = mPassword.getText().toString();
+                final String nombre = mNombre.getText().toString();
+                final String placa = mPlaca.getText().toString();
+
                 mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(activity_driver_register.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -83,34 +72,15 @@ public class activity_driver_register extends AppCompatActivity {
                             String user_id = mAuth.getCurrentUser().getUid();
                             DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id);
                             current_user_db.setValue(true);
-                            current_user_db.child("Nombre").setValue(nombre1);
-                            current_user_db.child("Placa").setValue(placa1);
-
+                            current_user_db.child("Nombre").setValue(nombre);
+                            current_user_db.child("Placa").setValue(placa);
                         }
                     }
                 });
             }
         });
-
     }
 
-    private void openGallery(){
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(gallery, PICK_IMAGE);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
-            imageUri = data.getData();
-            foto_gallery.setImageURI(imageUri);
-        }
-    }
-
-    public void login(View view){
-        Intent login =new Intent(this, activity_driver_login.class);
-        startActivity(login);
-    }
 
     @Override
     protected void onStart() {
