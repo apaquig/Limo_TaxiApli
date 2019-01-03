@@ -22,6 +22,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -47,6 +48,8 @@ public class activity_driver_map extends FragmentActivity implements OnMapReadyC
 
     private String customerId = "";
 
+    public Boolean isLoggingOut = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,10 @@ public class activity_driver_map extends FragmentActivity implements OnMapReadyC
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isLoggingOut = true;
+
+                desconectarDriver();
+
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(activity_driver_map.this, MainActivity.class);
                 startActivity(intent);
@@ -118,7 +125,7 @@ public class activity_driver_map extends FragmentActivity implements OnMapReadyC
                         locationLng = Double.parseDouble(map.get(1).toString());
                     }
                     LatLng driverLatLng = new LatLng(locationLat,locationLng);
-                    pickupMarker = mMap.addMarker(new MarkerOptions().position(driverLatLng).title("Recoger Aqui"));
+                    pickupMarker = mMap.addMarker(new MarkerOptions().position(driverLatLng).title("Recoger Aqui").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_cliente)));
                 }
             }
 
@@ -205,16 +212,21 @@ public class activity_driver_map extends FragmentActivity implements OnMapReadyC
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
     }
 
-
-
-    @Override
-    protected void onStop() {
-        super.onStop();
+    private void desconectarDriver(){
         LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("driversAvailable");
 
         GeoFire geoFire = new GeoFire(ref);
         geoFire.removeLocation(userId);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(!isLoggingOut){
+            desconectarDriver();
+        }
+
     }
 }
