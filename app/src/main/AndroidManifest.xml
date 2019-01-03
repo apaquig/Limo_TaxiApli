@@ -41,7 +41,7 @@
             android:label="@string/title_activity_driver_map" />
         <activity android:name=".activity_user_login" />
         <activity android:name=".activity_user_register"/>
-
+        <activity android:name=".activity_user_map"></activity>
     </application>
 
 </manifest>
