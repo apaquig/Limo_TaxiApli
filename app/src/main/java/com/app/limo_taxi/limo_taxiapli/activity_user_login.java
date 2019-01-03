@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class activity_user_login extends AppCompatActivity {
 
-    private EditText usuario,password;
+    private EditText mEmail,mPassword;
     private Button btnIniciarSesion;
 
     private FirebaseAuth mAuth;
@@ -30,46 +30,50 @@ public class activity_user_login extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        usuario=(EditText)findViewById(R.id.txtUserLogin);
-        password=(EditText)findViewById(R.id.txtUserPass);
-        btnIniciarSesion=(Button)findViewById(R.id.btnIUserLogin);
-
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if(user!=null){
-                    Intent intent = new Intent(activity_user_login.this, activity_user_map.class);
+                    Intent intent = new Intent(activity_user_login.this, activity_driver_map.class);
                     startActivity(intent);
                     finish();
                     return;
                 }
             }
         };
+        mEmail = (EditText) findViewById(R.id.txtUserLogin);
+        mPassword = (EditText) findViewById(R.id.txtUserPass);
 
+        btnIniciarSesion = (Button) findViewById(R.id.btnIUserLogin);
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               iniciar();
+                final String email = mEmail.getText().toString();
+                final String password = mPassword.getText().toString();
+                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(activity_user_login.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(!task.isSuccessful()){
+                            Toast.makeText(activity_user_login.this, "Error al Ingresar", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
             }
         });
     }
-    private void iniciar(){
-        String email = usuario.getText().toString();
-        String pass = password.getText().toString();
-       mAuth.createUserWithEmailAndPassword(email,pass)
-               .addOnCompleteListener(activity_user_login.this, new OnCompleteListener<AuthResult>() {
-                   @Override
-                   public void onComplete(@NonNull Task<AuthResult> task) {
-                       Toast.makeText(activity_user_login.this,"Logeado",Toast.LENGTH_LONG).show();
-                       if (!task.isSuccessful()){
-                           Toast.makeText(activity_user_login.this,"Failed",Toast.LENGTH_LONG).show();
-                       }
-                   }
-               });
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(firebaseAuthListener);
     }
-
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(firebaseAuthListener);
+    }
     public void registerUser(View view){
         Intent login =new Intent(this, activity_user_register.class);
         startActivity(login);

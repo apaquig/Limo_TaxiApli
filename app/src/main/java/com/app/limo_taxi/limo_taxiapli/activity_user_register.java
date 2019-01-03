@@ -74,7 +74,7 @@ public class activity_user_register extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 mAuth.signInWithEmailAndPassword(corr, pass);
 
-                                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("User");
+                                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Customers");
                                 DatabaseReference currentUserDB = mDatabase.child(mAuth.getCurrentUser().getUid());
                                 currentUserDB.child("nombre").setValue(name);
                                 currentUserDB.child("apellido").setValue(ape);
@@ -82,6 +82,7 @@ public class activity_user_register extends AppCompatActivity {
                                 currentUserDB.child("telefono").setValue(tel);
                                 String userid = mAuth.getCurrentUser().getUid();
                                 Toast.makeText(activity_user_register.this, "Registrado correctamente", Toast.LENGTH_LONG).show();
+                                limpiar();
                             } else {
                                 Toast.makeText(activity_user_register.this, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
                             }
@@ -91,7 +92,14 @@ public class activity_user_register extends AppCompatActivity {
         }
 
     }
-
+public void limpiar(){
+        nombre.setText("");
+        apellido.setText("");
+        telefono.setText("");
+        correo.setText("");
+        cedula.setText("");
+        password.setText("");
+}
 
     public void loginUser(View view){
         Intent login =new Intent(this, activity_user_login.class);

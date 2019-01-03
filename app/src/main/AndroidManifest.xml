@@ -40,7 +40,8 @@
             android:name=".activity_driver_map"
             android:label="@string/title_activity_driver_map" />
         <activity android:name=".activity_user_login" />
-        <activity android:name=".activity_user_register"></activity>
+        <activity android:name=".activity_user_register"/>
+
     </application>
 
 </manifest>
