@@ -13,6 +13,7 @@
                       <PersistentState>
                         <option name="children">
                           <map>
+<<<<<<< Updated upstream
                             <entry key="launcherLegacy">
                               <value>
                                 <PersistentState>
@@ -22,6 +23,30 @@
                                       <entry key="iconShape" value="NONE" />
                                       <entry key="imageAsset" value="C:\Users\Sanix\Downloads\Limo_TaxiApli\app\src\main\res\mipmap-xxxhdpi\ic_cliente.png" />
                                       <entry key="outputName" value="ic_cliente" />
+=======
+                            <entry key="actionbar">
+                              <value>
+                                <PersistentState>
+                                  <option name="children">
+                                    <map>
+                                      <entry key="clipartAsset">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/communication/ic_vpn_key_black_24dp.xml" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                    </map>
+                                  </option>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="outputName" value="ic_action_pass" />
+                                      <entry key="theme" value="CUSTOM" />
+>>>>>>> Stashed changes
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -31,7 +56,11 @@
                         </option>
                         <option name="values">
                           <map>
+<<<<<<< Updated upstream
                             <entry key="outputIconType" value="LAUNCHER_LEGACY" />
+=======
+                            <entry key="outputIconType" value="ACTIONBAR" />
+>>>>>>> Stashed changes
                           </map>
                         </option>
                       </PersistentState>
