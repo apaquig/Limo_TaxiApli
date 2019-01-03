@@ -119,7 +119,7 @@ public class activity_user_map extends FragmentActivity implements OnMapReadyCal
                     geoFire.setLocation(userId, new GeoLocation(mLastLocation.getLatitude(), mLastLocation.getLongitude()));
 
                     pickupLocation = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
-                    pickupMarker = mMap.addMarker(new MarkerOptions().position(pickupLocation).title("Recoger Aqui"));
+                    pickupMarker = mMap.addMarker(new MarkerOptions().position(pickupLocation).title("Recoger Aqui").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_cliente)));
 
                     mRequest.setText("Buscanco LimoTaxi....");
 
@@ -225,7 +225,7 @@ public class activity_user_map extends FragmentActivity implements OnMapReadyCal
 
 
 
-                    mDriverMarker = mMap.addMarker(new MarkerOptions().position(driverLatLng).title("Su LimoTaxi"));
+                    mDriverMarker = mMap.addMarker(new MarkerOptions().position(driverLatLng).title("Su LimoTaxi").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_taxi)));
                 }
 
             }

@@ -34,9 +34,23 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\ic_taxi.png" />
-                                      <entry key="outputName" value="ic_action_taxi" />
+                                      <entry key="imageAsset" value="C:\Users\Sanix\Downloads\Limo_TaxiApli\app\src\main\res\drawable-v24\ic_taxi.png" />
+                                      <entry key="outputName" value="ic_taxi1" />
                                       <entry key="theme" value="CUSTOM" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                            <entry key="launcherLegacy">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="iconShape" value="NONE" />
+                                      <entry key="imageAsset" value="C:\Users\Sanix\Downloads\Limo_TaxiApli\app\src\main\res\drawable-v24\ic_taxi.png" />
+                                      <entry key="outputName" value="ic_taxi1" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -46,7 +60,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputIconType" value="ACTIONBAR" />
+                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
                           </map>
                         </option>
                       </PersistentState>
