@@ -19,6 +19,7 @@ public class activity_user_login extends AppCompatActivity {
 
     private EditText usuario,password;
     private Button btnIniciarSesion;
+
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
 
@@ -27,9 +28,10 @@ public class activity_user_login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
+        mAuth = FirebaseAuth.getInstance();
+
         usuario=(EditText)findViewById(R.id.txtUserLogin);
         password=(EditText)findViewById(R.id.txtUserPass);
-
         btnIniciarSesion=(Button)findViewById(R.id.btnIUserLogin);
 
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -44,23 +46,30 @@ public class activity_user_login extends AppCompatActivity {
                 }
             }
         };
+
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String email = usuario.getText().toString();
-                final String pass = password.getText().toString();
-                mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(activity_user_login.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(!task.isSuccessful()){
-                            Toast.makeText(activity_user_login.this, "Error al Ingresar", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
+               iniciar();
             }
         });
     }
+    private void iniciar(){
+        String email = usuario.getText().toString();
+        String pass = password.getText().toString();
+       mAuth.createUserWithEmailAndPassword(email,pass)
+               .addOnCompleteListener(activity_user_login.this, new OnCompleteListener<AuthResult>() {
+                   @Override
+                   public void onComplete(@NonNull Task<AuthResult> task) {
+                       Toast.makeText(activity_user_login.this,"Logeado",Toast.LENGTH_LONG).show();
+                       if (!task.isSuccessful()){
+                           Toast.makeText(activity_user_login.this,"Failed",Toast.LENGTH_LONG).show();
+                       }
+                   }
+               });
+    }
+
+
     public void registerUser(View view){
         Intent login =new Intent(this, activity_user_register.class);
         startActivity(login);
